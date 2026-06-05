@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Finance & Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-container">
+      <h1 class="app-logo">Tracker<span>.app</span></h1>
+      <div class="tracker-header__greeting">
+        Hello, <strong>User</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-container">
+    
+    <section class="dashboard-grid">
+      <div class="card card-balance">
+        <span class="card-label">CURRENT BALANCE</span>
+        <h2 id="totalBalance">$0</h2>
+      </div>
+      <div class="card card-income">
+        <span class="card-label">TOTAL INCOME</span>
+        <h2 id="totalIncome">$0</h2>
+      </div>
+      <div class="card card-expense">
+        <span class="card-label">TOTAL EXPENSE</span>
+        <h2 id="totalExpense">$0</h2>
+      </div>
+    </section>
+
+    <div class="main-content-layout">
+      
+      <section class="form-section">
+        <div class="card">
+          <h3 id="formTitle">Add New Transaction</h3>
+          <form id="transactionForm">
+            <input type="hidden" id="transactionId">
+            
+            <div class="form-group">
+              <label for="transactionTitle">Description</label>
+              <input type="text" id="transactionTitle" placeholder="e.g., Lunch, Monthly Salary">
+            </div>
+
+            <div class="form-group">
+              <label for="transactionAmount">Amount ($)</label>
+              <input type="number" id="transactionAmount" placeholder="50">
+            </div>
+
+            <div class="form-group">
+              <label for="transactionDate">Date</label>
+              <input type="date" id="transactionDate">
+            </div>
+
+            <div class="form-group">
+              <label for="transactionType">Classification</label>
+              <select id="transactionType">
+                <option value="income">Income (+)</option>
+                <option value="expense">Expense (-)</option>
+              </select>
+            </div>
+
+            <button type="submit" id="submitButton" class="btn-submit">Save Transaction</button>
+            <button type="button" id="cancelEditButton" class="btn-cancel" style="display: none;">Cancel Edit</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="list-section">
+        <div class="card search-card">
+          <div class="search-box">
+            <input type="text" id="searchTransaction" placeholder="Search transactions by title...">
+          </div>
+        </div>
+
+        <div class="lists-container">
+          <div class="list-wrapper">
+            <h3>Income List</h3>
+            <div id="incomeList" class="transaction-list"></div>
+          </div>
+
+          <div class="list-wrapper">
+            <h3>Expense List</h3>
+            <div id="expenseList" class="transaction-list"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
